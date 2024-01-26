@@ -9,7 +9,7 @@ pipeline {
         APP_NAME = "reddit-clone-pipeline"
         RELEASE = "1.0.0"
         DOCKER_USER = "mazharhuda"
-        DOCKER_PASS = 'dckr_pat_kZsQFSsKcPGiJ6Y140M1X-7hGRI'
+        DOCKER_PASS = 'dckr_pat_zEMpkvCN-bYM36S6PwUmD1jPdok'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
 	JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
@@ -27,9 +27,9 @@ pipeline {
         }
         stage("Sonarqube Analysis") {
             steps {
-                withSonarQubeEnv('SonarQube-Server') {
-                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Reddit-Clone-CI \
-                    -Dsonar.projectKey=Reddit-Clone-CI'''
+                withSonarQubeEnv('sonarqube-server') {
+                    sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Reddit-Clone-Ci \
+                    -Dsonar.projectKey=Reddit-Clone-Ci'''
                 }
             }
         }
