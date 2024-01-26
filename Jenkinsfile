@@ -6,13 +6,13 @@ pipeline {
     }
     environment {
         SCANNER_HOME = tool 'sonar-scanner'
-        APP_NAME = "reddit-clone-pipeline"
+        APP_NAME = "RRClone-Ap-pipeline"
         RELEASE = "1.0.0"
         DOCKER_USER = "mazharhuda"
         DOCKER_PASS = 'dckr_pat_zEMpkvCN-bYM36S6PwUmD1jPdok'
         IMAGE_NAME = "${DOCKER_USER}" + "/" + "${APP_NAME}"
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
-	JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
+	#JENKINS_API_TOKEN = credentials("JENKINS_API_TOKEN")
     }
     stages {
         stage('clean workspace') {
