@@ -49,4 +49,6 @@ pipeline {
             steps {
                 sh "trivy fs . > trivyfs.txt"
              }  
+         }
+    }
 }
